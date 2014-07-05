@@ -50,6 +50,8 @@ func SetIp(ip string, id int) error {
 	values.Add("a", "rec_edit")
 	values.Add("z", *domain)
 	values.Add("type", "A")
+	values.Add("name", *target)
+	values.Add("service_mode", "0")
 	values.Add("content", ip)
 	values.Add("id", strconv.Itoa(id))
 	values.Add("ttl", fmt.Sprint(*ttl))
@@ -69,6 +71,9 @@ func SetIp(ip string, id int) error {
 		log.Println("got status", res.StatusCode)
 		return errors.New("bad status")
 	}
+
+	// body, _ := ioutil.ReadAll(res.Body)
+	// log.Println(string(body))
 
 	return nil
 }
