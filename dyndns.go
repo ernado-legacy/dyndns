@@ -14,7 +14,7 @@ import (
 )
 
 // структура для парсинга ответа от api
-type AllResponse stru	ct {
+type AllResponse struct {
 	Response struct {
 		Records struct {
 			Objects []struct {
